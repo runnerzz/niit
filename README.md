@@ -1,1 +1,5 @@
-# niit
+![image](https://github.com/runnerzz/niit/blob/master/UIpic/%E4%B8%BB%E7%95%8C%E9%9D%A2.GIF)
+![image](https://github.com/runnerzz/niit/blob/master/UIpic/%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2.GIF)
+![image](https://github.com/runnerzz/niit/blob/master/UIpic/%E7%99%BB%E9%99%86%E5%90%8E%E7%95%8C%E9%9D%A2.GIF)
+![image](https://github.com/runnerzz/niit/blob/master/UIpic/%E6%B7%BB%E5%8A%A0%E4%BF%A1%E6%81%AF%E7%95%8C%E9%9D%A2.GIF)
+![image](https://github.com/runnerzz/niit/blob/master/UIpic/%E7%BC%96%E8%BE%91%E4%BF%A1%E6%81%AF%E7%95%8C%E9%9D%A2.GIF)
