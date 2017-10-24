@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Microservice.iml" filepath="$PROJECT_DIR$/Microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/niit_server_eureka/niit_server_eureka.iml" filepath="$PROJECT_DIR$/niit_server_eureka/niit_server_eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/niit_service_add/niit_service_add.iml" filepath="$PROJECT_DIR$/niit_service_add/niit_service_add.iml" />
+      <module fileurl="file://$PROJECT_DIR$/niit_web_ui/niit_web_ui.iml" filepath="$PROJECT_DIR$/niit_web_ui/niit_web_ui.iml" />
+    </modules>
+  </component>
+</project>

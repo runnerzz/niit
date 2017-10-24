@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.ntsc.job.dao.IJobDao">
+	<resultMap id="JobResultMap" type="cn.edu.ntsc.job.domain.Job">
+		<result column="jobID" property="jobID" />
+		<result column="jobCompanyName" property="jobCompanyName" />
+		<result column="jobIsPartTime" property="jobIsPartTime" />
+		<result column="jobTitle" property="jobTitle" />
+		<result column="jobDesc" property="jobDesc" />
+		<result column="jobDegree" property="jobDegree" />
+		<result column="jobSex" property="jobSex" />
+		<result column="jobWorkAddress" property="jobWorkAddress" />
+		<result column="jobSalary" property="jobSalary" />
+		<result column="jobEmpCount" property="jobEmpCount" />
+		<result column="jobContact" property="jobContact" />
+		<result column="jobPublishtTime" property="jobPublishtTime" />
+		<result column="jobExpireTime" property="jobExpireTime" />
+		<result column="jobRemarks" property="jobRemarks" />
+		<result column="jobStatus" property="jobStatus" />
+	</resultMap>
+	<!-- 根据ID查询招聘信息 -->
+	<select id="getJobInfoByJobID" resultMap="JobResultMap" parameterType="java.lang.Integer">
+		select
+		job_CompanyName as jobCompanyName,
+		job_IsPartTime as jobIsPartTime,
+		job_Title as jobTitle,
+		job_Desc as jobDesc,
+		job_Degree as jobDegree,
+		job_Sex as jobSex,
+		job_WorkAddress as jobWorkAddress,
+		job_Salary as jobSalary,
+		job_EmpCount as jobEmpCount,
+		job_Contact as jobContact,
+		job_PublishtTime as jobPublishtTime,
+		job_ExpireTime as jobExpireTime,
+		job_Remarks as jobRemarks,
+		job_Status as jobStatus
+		from job_list where job_ID=#{jobID}
+	</select>
+	<!-- 查询招聘信息列表 -->
+	<select id="getJobList" resultMap="JobResultMap">
+		select
+		job_ID as jobID,
+		job_CompanyName as jobCompanyName,
+		job_IsPartTime as jobIsPartTime,
+		job_Title as jobTitle,
+		job_Desc as jobDesc,
+		job_Degree as jobDegree,
+		job_Sex as jobSex,
+		job_WorkAddress as jobWorkAddress,
+		job_Salary as jobSalary,
+		job_EmpCount as jobEmpCount,
+		job_Contact as jobContact,
+		job_PublishtTime as jobPublishtTime,
+		job_ExpireTime as jobExpireTime,
+		job_Remarks as jobRemarks,
+		job_Status as jobStatus
+		from job_list 
+		where job_Status > 0
+		ORDER BY job_PublishtTime DESC
+	</select>
+	<!-- 根据岗位查询招聘信息 -->
+	<select id="getJobListByjobTitle" resultMap="JobResultMap" parameterType="java.lang.String">
+	     select
+	     job_CompanyName as jobCompanyName,
+	     job_Title as jobTitle,
+	     job_Degree as jobDegree,
+	     job_WorkAddress as jobWorkAddress,
+	     job_Salary as jobSalary,
+	     job_PublishtTime as jobPublishtTime
+	     from job_list where job_Title concat(concat('%',#{jobTitle}),'%')
+	</select>
+</mapper>

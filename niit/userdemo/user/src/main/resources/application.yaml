@@ -1,0 +1,21 @@
+server:
+  port: 8889
+spring:
+  application:
+    name: user
+  datasource:
+    url: jdbc:mysql://localhost:3306/userdb
+    username: root
+    password: 123
+    driver-class-name: com.mysql.jdbc.Driver
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/resources/,classpath:/static/,classpath:/public/,file:D:/niit/userdemo/user/target/images/
+eureka:
+    client:
+      serviceUrl:
+        defaultZone: http://localhost:8888/eureka
+mybatis:
+  type-aliases-package: com.niit.user.domain
+  mapper-locations: classpath:mapper/*.xml

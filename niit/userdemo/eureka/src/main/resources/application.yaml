@@ -1,0 +1,11 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: eureka
+eureka:
+  instance:
+    hostname: eureka
+  client:
+    register-with-eureka: false
+    fetch-registry: false

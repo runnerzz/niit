@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.niit.user.dao.UserDao">
+    <resultMap id="UserResultMap" type="com.niit.user.domain.User">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="pwd" property="pwd"/>
+        <result column="sex" property="sex"/>
+        <result column="mobilePhone" property="mobilePhone"/>
+        <result column="email" property="email"/>
+        <result column="avator" property="avator"/>
+        <result column="status" property="status"/>
+    </resultMap>
+    <!-- 查询所有用户信息-->
+    <select id="getAllUserInfo" resultMap="UserResultMap">
+        select
+            id as id,
+            name as name,
+            pwd as pwd,
+            sex as sex,
+            mobilePhone as mobilePhone,
+            email as email,
+            avator as avator,
+            status as status
+        from user
+    </select>
+    <!-- 通过用户名和密码查询用户信息-->
+    <select id="getUserByNameAndPwd" resultMap="UserResultMap">
+        SELECT
+            id as id,
+            name as name,
+            pwd as pwd,
+            sex as sex,
+            mobilePhone as mobilePhone,
+            email as email,
+            avator as avator,
+            status as status
+        FROM user
+        where
+          name=#{name} AND  pwd=#{pwd}
+    </select>
+    <!-- 通过用户名查询用户信息-->
+    <select id="getUserByName" resultMap="UserResultMap" parameterType="java.lang.String">
+        SELECT
+            id as id,
+            name as name,
+            pwd as pwd,
+            sex as sex,
+            mobilePhone as mobilePhone,
+            email as email,
+            avator as avator,
+            status as status
+        FROM user
+        where
+          name=#{name}
+    </select>
+    <!-- 保存添加的用户信息-->
+    <insert id="saveAddInfo" parameterType="com.niit.user.domain.User">
+        INSERT INTO user(
+            name,
+            pwd,
+            sex,
+            mobilePhone,
+            email,
+            avator,
+            status
+        )VALUES (
+            #{name},
+            #{pwd},
+            #{sex},
+            #{mobilePhone},
+            #{email},
+            #{avator},
+            #{status}
+        )
+    </insert>
+    <!-- 通过ID查询用户信息-->
+    <select id="getUserById" resultMap="UserResultMap" parameterType="java.lang.Integer">
+        SELECT
+            id as id,
+            name as name,
+            pwd as pwd,
+            sex as sex,
+            mobilePhone as mobilePhone,
+            email as email,
+            avator as avator,
+            status as status
+        FROM user
+        where
+            id=#{id}
+    </select>
+    <!-- 根据ID更新用户信息-->
+    <update id="updateEditInfoByID" parameterType="com.niit.user.domain.User">
+        UPDATE user
+        SET
+            name = #{name},
+            pwd = #{pwd},
+            sex = #{sex},
+            mobilePhone = #{mobilePhone},
+            email = #{email},
+            avator = #{avator},
+            status = #{status}
+        WHERE
+            id = #{id}
+    </update>
+    <delete id="deleteInfoById" parameterType="java.lang.Integer">
+        delete from user where id=#{id}
+    </delete>
+
+</mapper>

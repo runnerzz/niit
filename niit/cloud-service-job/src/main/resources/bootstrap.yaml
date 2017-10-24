@@ -1,0 +1,16 @@
+spring.cloud.config.uri: http://127.0.0.1:${config.port:9999}
+spring.cloud.config.name: cloud-service-job
+spring.cloud.config.profile: ${config.profile:dev}
+#service discovery url
+eureka.client.serviceUrl.defaultZone: http://211.70.2.83:8888/eureka/
+eureka.instance.metadata-map.cluster: MAIN
+#eureka.instance.leaseRenewalIntervalInSeconds: 1
+#eureka.instance.leaseExpirationDurationInSeconds: 2
+#service name
+spring.application.name: cloud-service-job
+server.port: 8105
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000 #熔断器超时时间设置成1分钟
+
+
+
+

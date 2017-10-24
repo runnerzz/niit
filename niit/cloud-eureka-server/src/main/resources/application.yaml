@@ -1,0 +1,37 @@
+server.port: 8888
+eureka.instance.hostname: localhost
+eureka.client.registerWithEureka: false
+eureka.client.fetchRegistry: false
+eureka.client.serviceUrl.defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+spring.application.name: cloud-eureka-server
+
+#以下是高可用服务配置，适用于生产环境
+#java -jar cloud-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer_server_1
+#java -jar cloud-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer_server_2
+---
+spring:
+  profiles: peer_server_1                                  # 指定profile=peer_server_1
+  application:
+    name: cloud-eureka-server
+server:
+  port: 8888   # 注册服务的端口号
+eureka:
+  instance:
+    hostname: peer_server_1                               # 指定当profile=peer_server_1时，主机名
+  client:
+    serviceUrl:
+      defaultZone: http://peer_server_2:8899/eureka/      # 将自己注册到peer_server_2这个Eureka上面去
+
+---
+spring:
+  profiles: peer_server_2
+  application:
+    name: cloud-eureka-server
+server:
+  port: 8899
+eureka:
+  instance:
+    hostname: peer_server_2
+  client:
+    serviceUrl:
+      defaultZone: http://peer_server_1:8888/eureka/  # 服务注册地址，将自己注册到peer_server_1上去
