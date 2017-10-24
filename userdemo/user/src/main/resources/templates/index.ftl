@@ -411,6 +411,7 @@
                     $("#editStatus").val(user.status);
                     $("#editEmail").val(user.email);
                     $('#editImg').attr('src',user.avator);
+                    $('#editAvator').val(user.avator);
                 });
     }
     /**
